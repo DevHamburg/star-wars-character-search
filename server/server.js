@@ -1,17 +1,25 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const fs = require('fs')
 
 app.use(express.json())
 app.use(bodyParser.json())
 
-app.get('/'),
-  (req, res) => {
-    res.json(data)
+app.get('/all', (req, res) => {
+  const data = fs.readFileSync('search-data.txt', 'utf-8')
+  res.json(data)
+})
 
-    console.log(data)
-  }
+app.post('/search', (req, res) => {
+  const data = JSON.stringify(req.body)
+  fs.writeFileSync('search-data.txt', data, {
+    flag: 'a',
+  })
+  res.json(data)
+})
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Server ready on port 3000')
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+  console.log('Server ready on port ' + port)
 })
