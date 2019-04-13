@@ -1,0 +1,18 @@
+@import '../sass/main.scss';
+
+.grid {
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+.container {
+  width: 400px;
+  background: $second-dark-bg;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border-radius: 8px;
+  padding: 1rem;
+}
