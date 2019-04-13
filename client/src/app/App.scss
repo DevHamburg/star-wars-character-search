@@ -15,4 +15,18 @@
   justify-items: center;
   border-radius: 8px;
   padding: 1rem;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.list {
+  margin: 2px;
+  width: 14rem;
+  padding: $prime-padding;
+  color: $prime-font;
+  border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid $prime-dark-bg;
+  background: linear-gradient(#484e55, #3a3f44 60%, #313539);
 }

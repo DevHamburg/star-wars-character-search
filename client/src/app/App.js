@@ -22,22 +22,26 @@ function App() {
     e.target.reset()
   }
 
-  function saveSearchResults() {}
-
-  function getSearchResults() {
-    const apiURL = `https://swapi.co/api/people/?search=${searchData.search}`
-    console.log(apiURL)
-    axios.get(apiURL).then(function(res) {
-      const names = res.data.results.map(item => item.name)
-      console.log('blub hier ' + names)
-      setNames({
-        names,
-      })
+  function saveSearchResults() {
+    const serverURL = 'http://localhost:4000/search'
+    axios.post(serverURL, searchData).then(function(res) {
+      console.log(searchData)
     })
   }
 
-  console.log(names)
-  console.log(names.names)
+  function getSearchResults() {
+    const apiURL = `https://swapi.co/api/people/?search=${searchData.search}`
+    axios.get(apiURL).then(function(res) {
+      if (res.data.count !== 0) {
+        const names = res.data.results.map(item => item.name)
+        setNames({
+          names,
+        })
+      } else {
+        alert('Meister Yoda: Dieser Namen nicht existent sein.')
+      }
+    })
+  }
 
   return (
     <div className="grid">
@@ -51,10 +55,15 @@ function App() {
             placeholder="...search"
             maxLength="20"
           />
-          <button>ok</button>
+          <button>Search</button>
         </div>
         <section>
-          <ul>{names.names && names.names.map(item => <li>{item}</li>)}</ul>
+          {names.names &&
+            names.names.map(item => (
+              <div className="list" key={item}>
+                {item}
+              </div>
+            ))}
         </section>
       </form>
     </div>

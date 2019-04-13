@@ -2,9 +2,11 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const fs = require('fs')
+const cors = require('cors')
 
 app.use(express.json())
 app.use(bodyParser.json())
+app.use(cors())
 
 app.get('/all', (req, res) => {
   const data = fs.readFileSync('search-data.txt', 'utf-8')
