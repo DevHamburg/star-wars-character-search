@@ -24,9 +24,8 @@ function App() {
 
   function saveSearchResults() {
     const serverURL = 'http://localhost:4000/search'
-    axios.post(serverURL, searchData).then(function(res) {
-      console.log(searchData)
-    })
+
+    axios.post(serverURL, searchData).then(function(res) {})
   }
 
   function getSearchResults() {

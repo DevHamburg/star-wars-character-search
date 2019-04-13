@@ -15,7 +15,10 @@ app.get('/all', (req, res) => {
 
 app.post('/search', (req, res) => {
   const data = JSON.stringify(req.body)
-  fs.writeFileSync('search-data.txt', data, {
+  const timestamp = Date.now()
+  const searchResult = data + timestamp
+
+  fs.writeFileSync('search-data.txt', searchResult, {
     flag: 'a',
   })
   res.json(data)
