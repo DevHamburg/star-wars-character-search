@@ -19,7 +19,7 @@
 
 # Start client & server
 
-### Open Terminal cd in server folder and type: npm run cs
+### Open the Terminal, cd in the server folder and type: npm run cs
 
 `cd server`
 
@@ -35,7 +35,7 @@
 
 # Start React-Client Only
 
-### Open Terminal cd in clinet folder and type: npm start
+### Open the Terminal, cd in the client folder and type: npm start
 
 `cd client`
 
@@ -43,7 +43,7 @@
 
 # Start Node-Server Only
 
-### Open Terminal cd in server folder and type: npm start
+### Open the Terminal, cd in the server folder and type: npm run dev
 
 `cd server`
 
